@@ -2,7 +2,7 @@ import numpy as np
 
 # np.array() function
 
-# a = np.array([1, 2, 3, 4])  # this is 1d array or vector
+a1 = np.array([1, 2, 3, 4])  # this is 1d array or vector
 # # -> numpy arrays are fixed size
 # # list in python store hetrogenous data (like string float int all at once )
 # # list in python is dynamic sized as it can double its size
@@ -12,34 +12,35 @@ import numpy as np
 #     print(i)
 
 
-# a = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])  # this is 2d array or matrix
+# this is 2d array or matrix
+a2 = np.array([[1, 2, 3, 4], [5, 6, 7, 8]], dtype=np.int32)
 # print(a)
 
 # # 3D numpy array also called tensor
 # # in numpy there can be any no. of dimention made of a array
-# a = np.array(
-#     [
-#         [
-#             [
-#                 1, 2
-#             ], [
-#                 3, 4
-#             ]
-#         ], [
-#             [
-#                 5, 6
-#             ], [
-#                 7, 8
-#             ]
-#         ], [
-#             [
-#                 9, 10
-#             ], [
-#                 11, 12
-#             ]
-#         ]
-#     ]
-# )
+a3 = np.array(
+    [
+        [
+            [
+                1, 2
+            ], [
+                3, 4
+            ]
+        ], [
+            [
+                5, 6
+            ], [
+                7, 8
+            ]
+        ], [
+            [
+                9, 10
+            ], [
+                11, 12
+            ]
+        ]
+    ]
+)
 # print(a)
 # # float data type of numpy array
 # # dtype argument can have data type of array as a parameter like float int string complex
@@ -120,5 +121,170 @@ import numpy as np
 
 # ndim
 
+# attribute to print n-dimention
+# print(a3.ndim)  # 3 dimention
+# print(a2.ndim)  # 2 dimentions
+# print(a1.ndim)  # 1 dimentions
+
+# shape attributes
+# print(a1.shape)  # will provide shape as (row,col)
+# print(a2.shape)  # will provide shape as (row,col)
+# print(a3.shape)  # will provide shape as (no. of 2D arrays , row-2D array , col-2D array)
+
+# size attribute and itemsize attribute
+# np.dtype = int32 to types of size of int
+# np.dtype = int64  (Default)
+# print(a2.size)  # size of the total array (No. of elements)
+# print(a2.itemsize)  # size of the  array element in memory
 
 
+# # dtype attribute will display array type
+# print(a2.dtype)
+
+
+# # Total Attribute
+# # 1 ndim
+# # 2 shape
+# # 3 size
+# # 4 itemsize
+# # 5 dtype
+# # change data type of already created array
+
+# # astype attribute
+# # print(a2.dtype)
+# print(a2.astype('int64'))
+# print(a2.dtype)
+
+
+# # mathematical operations on numpy arrays
+
+
+# # Saler operations
+# # a1 = matrix , 2= scaler
+# # =>Arthimatic operators
+# print(a1*2)  # will multiply the each element with 2
+# print(a1/2)  # will divide the each element with 2
+# print(a1//2)  # will floor the each element with 2
+# print(a1 % 2)  # will modulous the each element with 2
+# print(a1+2)  # will additions the each element with 2
+# print(a1-2)  # will subtraction the each element with 2
+# print(a1**2)  # will power the each element with 2
+# # => Logical Operators
+# print(a1 ^ 2)  # will XOR the each element with 2
+# print(a1.all() and 2)  # will AND the each element with 2
+# print(a1.all() or 2)  # will OR the each element with 2
+# # => Relational Operators
+# print(a1 == 2)  # will check each element if it is equal to 2 return an array
+# print(a1 != 2)  # will check each element if it is equal to 2 return an array
+# print(a1 >= 2)  # will check each element if it is equal to 2 return an array
+# print(a1 <= 2)  # will check each element if it is equal to 2 return an array
+# print(a1 < 2)  # will check each element if it is equal to 2 return an array
+# print(a1 > 2)  # will check each element if it is equal to 2 return an array
+
+# Vector  Operations
+# operation apply between two or more arrays
+# note the shape should be same to both the operand arrays in vector operations
+# just like matrix
+# print(a1)
+# print(a2)
+# # print(a1*a1)
+# print(a1*a1)
+# print(a1**a2)
+# print(a1+a1)
+# print(a1/a2)
+# print(a1-a1)
+
+
+# a1 = a1.reshape(4, 1)
+# print(a1*a2)  this will produce Error as the shape is not same
+# operands could not be broadcast together with shapes (4,1) (2,4)
+
+
+# array funtions in numpy
+# there are so many array funtions these are the basic array function
+# print(a1.sum())
+# print(a1.max())
+# print(a1.min())
+# print(a1.prod())
+# print(np.min(a2,axis=0))
+# print(np.min(a2,axis=1))
+
+
+a1 = np.random.random((3, 3))
+a1 = np.round(a1*100)
+# print(a1)
+# print(a1.max())
+# print(a1.min())
+# print(a1.sum())
+# print(a1.prod())
+# # min and max from each row
+# #  0 = col , 1=row
+# print(np.min(a1, axis=1))
+# print(np.max(a1, axis=1))
+
+# Statical method
+# print(np.mean(a1))  # mean from Whole array elements
+# print(np.median(a1))  # median from Whole array elements
+# print(np.std(a1))  # standad Deviations
+# print(np.var(a1))  # variance
+# # print(np.mode(a1))
+
+# # Trignomatric funtions
+# print(np.sin(a1))
+# print(np.cos(a1))
+# print(np.tan(a1))
+
+
+# dot product funtion
+
+
+# a1 = np.random.random((3, 4))
+# a2 = np.random.random((4, 3))
+# a1 = np.round(a1*100)
+# a2 = np.round(a2*100)
+
+# # Conditions for dot product
+# # no. of col of 1st matrix == no.of row of 2nd matrix
+# #  (2,3).(3,2) resultent matrix = (2,2)
+
+# print(np.dot(a1,a2))
+
+
+# # log
+# print(np.log(a1))
+# print(np.exp(a1))  # exponential
+# # will make round off the no. to the neareset integer like 6.9 = 7 and 6.4 = 6
+# print(np.round(np.exp(a1)))
+# # floor will round of to the previous nearest integer like floor(6.9) == 6
+# print(np.floor(np.exp(a1)))
+# # ceil will round of to the next nearest integer like ceil(6.9) == 7
+# print(np.ceil(np.exp(a1)))
+
+
+# Indexing in numpy arrays
+# array indexing starts with 0 is positive indexing right to left
+# array indexing starts with -1 is negative indexing  left to right
+# arr[row,col] for access an element in array
+
+a = np.arange(11)
+b = np.arange(1, 26).reshape(5, 5)
+# print(a)
+# print(b)
+# here in numpy the array index or numbering of column and rows start with 0
+print(b[2, 2])
+# here in numpy the array index or numbering of column and rows start with 0
+print(b[0, 4])
+
+# 0 =  row1
+# 4 = col5
+
+
+# Now array indexing for 3D Array
+# so  as we know a 3D array or a tensor is a made up of 2d matrix
+#  so to access any element in a 3D matrix we should index the Each 2D array in a 3D array that start with 0
+# arr3D[indexOf2DArray , indexOfRowOf2DArray,indexOfColOf2DArray]
+# after finding the index of 2D array find the index of row of in 2D array in which your element present this index is also start with the 0
+# after finding the index of row of  2D array  find the index of Col of in 2D array in which your element present this index is also start with the 0
+
+# lets create a tensor
+a =  
