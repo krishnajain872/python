@@ -271,9 +271,9 @@ b = np.arange(1, 26).reshape(5, 5)
 # print(a)
 # print(b)
 # here in numpy the array index or numbering of column and rows start with 0
-print(b[2, 2])
-# here in numpy the array index or numbering of column and rows start with 0
-print(b[0, 4])
+# print(b[2, 2])
+# # here in numpy the array index or numbering of column and rows start with 0
+# print(b[0, 4])
 
 # 0 =  row1
 # 4 = col5
@@ -287,4 +287,152 @@ print(b[0, 4])
 # after finding the index of row of  2D array  find the index of Col of in 2D array in which your element present this index is also start with the 0
 
 # lets create a tensor
-a =  
+a = np.array([
+    [[1, 2],
+     [3, 4]],
+
+    [[5, 6],
+     [7, 8]],
+    [[9, 10],
+     [11, 12]]
+])
+# print(a[0,0,0])
+# print(a[1, 1, 1])
+# print(a[1,0,1])
+
+# Array slicing
+# to fetch more than one item at once use slicing
+
+# array slicing in 1D is like list
+# b[start:stop:Jump]
+# start = 0 default
+# end = end of the array lenth default
+# jump = 1 default
+# so [::] will return whole array or string or list
+# as jump = 1 default so to jump 1 element in list or array we set jump =  2
+# array slicing in 2D is
+#  b[row slicing, column slicing ]
+
+# points
+# in 2D array slicing
+# we do something like
+# arr[::,::] this will print entire 2D array
+# print(b)
+# print(b[::])  # similary this print all row means entire 2D array
+# print(b[::, ::])  # similary this print all row means entire 2D array
+# similary this print all odd rows starting form 0 to end array lenght or last row
+
+# print(b[::2])
+
+# [[ 1  2  3  4  5]
+#  [ 6  7  8  9 10]
+#  [11 12 13 14 15]
+#  [16 17 18 19 20]
+#  [21 22 23 24 25]]
+# print (1,5,21,25)
+# 12 13 14 15
+
+# print(b[::3, ::4])
+# print(b[::3, ::4])
+# print(b[2::, 1::])
+
+
+# Now slicing the  3D arrays
+# for slice a 3d array we know that a 3D array is consist a no. of 2D arrays
+# arr3D[slic 2D array, slice row ,slice col]
+# 3D array
+
+# [[[1 2]
+#   [3 4]]
+
+#  [[5 6]
+#   [7 8]]]
+
+# print(a)
+# print(a[1::3, 1::, 1::]) #[[[8]]]
+# print(a[1::3, ::2, 1::2]) #[[[6]]]
+# print(a[::, ::2, 1::2]) #[[[6]]]
+
+# negative slicing will reverse the array
+# ex
+# print(a[::-2])
+a = np.arange(11)
+# print(a[::-1]) #this code will reverse the linear 1D array or list
+# this code will reverse and print skip element the linear 1D array or list
+# print(a[::-2])
+# print(a[1::-1])  # this code will start from 1 and will reverse
+# print(a[5::-1])  # this code will start from 1 and will reverse
+# print(a[5::-1])  # this code will start from 1 and will reverse
+
+
+# def factorial(num):
+#     a = np.arange(1, num+1)
+#     fac = 1
+#     for i in a:
+#         fac = fac*i
+#     return fac
+
+
+# c = factorial(10)
+# print(c)
+
+# factorial function using numpy arrays
+
+# funtion to reverse a string
+# def reverse(string):
+# 	return string[::-1]
+
+# a=reverse('krishna')
+# print(a)
+
+# iteration
+
+
+a1 = np.arange(1, 11)
+a2 = np.arange(1, 10).reshape(3, 3)
+a3 = np.arange(1, 28).reshape(3, 3, 3)
+# print(a3)
+# print(a2)
+# print(a1)
+
+# for i in a1:
+#   print(i)
+
+
+# for i in a2:
+#     print(i)
+
+
+# for i in a3:
+#   print(i)
+
+# for i in np.nditer(a3):
+# 	print(i)
+
+
+# transpose
+# print(a1.T)
+# print(a1.T)
+# print(a3.T)
+
+
+# print((a3.ravel()))
+
+
+# Stacking  mixing two or more array
+# hstack ,vstack
+# hstack horizontaly stack array this will change the no.of cols
+# vstack vertically stack array this will change the no.of rows
+
+a=np.arange(12).reshape(3,4 )
+b=np.arange(12,18).reshape(3,2 )
+b2=np.arange(12,24).reshape(3,4 )
+
+# print(np.hstack((a,b)))
+# print(np.vstack((a,b2)))
+
+
+
+# spliting
+# hsplit(array,number of parts) opposite of vstack 
+# vsplit(array,number of parts) opposite of  hstack
